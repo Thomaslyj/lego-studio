@@ -9,6 +9,7 @@
 /data/mysql-local/
 /data/raw/
 /code/.venv/
+/.venv/
 **/node_modules/
 **/dist/
 **/__pycache__/

@@ -1,0 +1,15 @@
+[Unit]
+Description=LEGO Studio API
+After=network.target mysql.service
+Requires=mysql.service
+
+[Service]
+User=lego
+Group=lego
+WorkingDirectory=/home/lego/lego-studio/code/backend
+EnvironmentFile=/etc/lego-studio.env
+ExecStart=/home/lego/lego-studio/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

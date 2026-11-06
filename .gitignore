@@ -1,0 +1,18 @@
+# Only deployment source and supporting schema are tracked by explicit add.
+/.claude/
+/课程要求/
+/报告撰写格式和要求/
+/前端参考/
+/docs/
+/tmp/
+/data/backup/
+/data/mysql-local/
+/data/raw/
+/code/.venv/
+**/node_modules/
+**/dist/
+**/__pycache__/
+**/.env
+*.pyc
+*.log
+*.mwb

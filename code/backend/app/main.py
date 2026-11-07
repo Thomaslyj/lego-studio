@@ -115,6 +115,11 @@ def set_detail(set_num: str, quantity: int = Query(1, ge=1), inventory_id: int |
 def stock(page: int = Query(1, ge=1), page_size: int = Query(20, ge=1, le=100), search: str = ''):
     params = {'search': '%'+search+'%', 'limit':page_size, 'offset':(page-1)*page_size}
     with engine.connect() as conn:
+        if not search:
+            return {'items': all_rows(conn, '''SELECT s.part_num,p.name,s.color_id,c.name AS color_name,c.rgb,s.quantity
+                FROM stock s JOIN parts p ON p.part_num=s.part_num JOIN colors c ON c.id=s.color_id
+                ORDER BY s.part_num,s.color_id LIMIT :limit OFFSET :offset''', params),
+                'total': conn.execute(text('SELECT COUNT(*) FROM stock')).scalar()}
         return {'items': all_rows(conn, '''SELECT s.part_num,p.name,s.color_id,c.name AS color_name,c.rgb,s.quantity
             FROM stock s JOIN parts p ON p.part_num=s.part_num JOIN colors c ON c.id=s.color_id
             WHERE p.name LIKE :search OR p.part_num LIKE :search ORDER BY s.part_num,s.color_id LIMIT :limit OFFSET :offset''', params),

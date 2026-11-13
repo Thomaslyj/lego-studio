@@ -179,7 +179,7 @@ const { creatingReceipt, createFromShortage } = useShortageReceipt()
               </el-select>
             </label>
             <label class="field">
-              <span>拼搭份数</span>
+              <span>组装份数</span>
               <el-input-number v-model="formQty" :min="1" :max="999" step-strictly :precision="0" />
             </label>
             <button class="brick-btn white small" :disabled="!dirty || !formQty || saving" @click="save">

@@ -15,7 +15,7 @@ npm run build    # 输出到 dist/
 ## 结构
 
 - `src/intro/`：开场倾倒动画（`IntroScene.vue`）和零件模型（`pieces.js`）
-- `src/views/`：套装探索、套装详情与备料、拼搭任务（列表/详情）、库存与入库、单据记录
+- `src/views/`：套装探索、套装详情与备料、组装任务（列表/详情）、库存与入库、单据记录
 - `src/components/`：套装图片（加载失败时显示色块占位）、颜色小砖、状态标签、备料明细表
 - `src/api/`：接口封装；`lookup.js` 为单据明细补充零件名称和颜色
 - `src/styles/lego.css`：设计变量、积木按钮、凸点底纹、Element Plus 主题覆盖

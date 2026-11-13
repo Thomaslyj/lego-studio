@@ -84,7 +84,7 @@ async function createTask() {
   creating.value = true
   try {
     const r = await api.createTask({ set_num: setNum.value, quantity: quantity.value, inventory_id: inventoryId.value })
-    ElMessage.success(`已创建拼搭任务 #${r.id}`)
+    ElMessage.success(`已创建组装任务 #${r.id}`)
     router.push(`/tasks/${r.id}`)
   } catch (e) {
     ElMessage.error(e.message)
@@ -148,7 +148,7 @@ const { creatingReceipt, createFromShortage } = useShortageReceipt()
               </el-select>
             </label>
             <label class="field">
-              <span>拼搭份数</span>
+              <span>组装份数</span>
               <el-input-number v-model="quantity" :min="1" :max="999" :step="1" step-strictly :precision="0" />
             </label>
           </section>
@@ -167,7 +167,7 @@ const { creatingReceipt, createFromShortage } = useShortageReceipt()
             <p v-else-if="items.length" class="okline">库存足够，创建任务后即可领料。</p>
 
             <button class="brick-btn create" :disabled="!inventoryId || !quantity || !items.length || creating" @click="createTask">
-              {{ creating ? '正在创建…' : '创建拼搭任务' }}
+              {{ creating ? '正在创建…' : '创建组装任务' }}
             </button>
             <button
               v-if="summary.short > 0" class="brick-btn yellow small"

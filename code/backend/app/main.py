@@ -10,7 +10,7 @@ from sqlalchemy import text
 
 from .db import engine
 
-app = FastAPI(title='LEGO 拼搭工作室备料与库存管理')
+app = FastAPI(title='LEGO 组装工作室备料与库存管理')
 app.add_middleware(CORSMiddleware, allow_origins=['http://localhost:5173', 'http://127.0.0.1:5173'], allow_methods=['*'], allow_headers=['*'])
 PositiveInt = Annotated[int, Field(strict=True, gt=0)]
 
@@ -62,7 +62,7 @@ def version(conn, set_num, inventory_id=None, require_parts=False):
         raise HTTPException(409, '该清单包含嵌套套装或数据不完整，暂不支持')
     if require_parts and not conn.execute(text('''SELECT EXISTS(
         SELECT 1 FROM inventory_parts WHERE inventory_id=:id AND is_spare=0)'''), {'id': result['id']}).scalar():
-        raise HTTPException(409, '该清单没有可领用的零件，不能创建或修改拼搭任务')
+        raise HTTPException(409, '该清单没有可领用的零件，不能创建或修改组装任务')
     return result
 
 

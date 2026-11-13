@@ -56,7 +56,7 @@ const TABS = [['all', '全部'], ['draft', '草稿'], ['issued', '已领料']]
   <div class="page">
     <div class="page-head">
       <div>
-        <h1>拼搭任务</h1>
+        <h1>组装任务</h1>
         <p class="muted">从套装详情创建任务；草稿可修改或删除，领料后只读。</p>
       </div>
       <RouterLink to="/sets" class="brick-btn">从套装新建任务</RouterLink>

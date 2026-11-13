@@ -8,7 +8,7 @@ const route = useRoute()
 const showIntro = ref(true)
 const nav = [
   { key: 'sets', to: '/sets', label: '套装探索' },
-  { key: 'tasks', to: '/tasks', label: '拼搭任务' },
+  { key: 'tasks', to: '/tasks', label: '组装任务' },
   { key: 'stock', to: '/stock', label: '库存与入库' },
   { key: 'records', to: '/records', label: '单据记录' },
 ]
@@ -21,7 +21,7 @@ const nav = [
       <div class="topbar-inner">
         <RouterLink to="/sets" class="brand" aria-label="返回套装探索">
           <img class="brand-mark" :src="legoLogo" alt="LEGO" />
-          <span class="brand-text">拼搭工作室<small>备料与库存</small></span>
+          <span class="brand-text">组装工作室<small>备料与库存</small></span>
         </RouterLink>
         <nav class="mainnav" aria-label="主导航">
           <RouterLink
